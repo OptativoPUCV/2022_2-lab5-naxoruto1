@@ -88,7 +88,7 @@ Pair * searchTreeMap(TreeMap * tree, void* key){
       Aux = Aux->left;
     }
     else{
-      Aux = Aux->rigth;
+      Aux = Aux->right;
     }
   }
   
