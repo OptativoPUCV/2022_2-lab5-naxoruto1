@@ -345,3 +345,15 @@ Mon 26 Sep 2022 01:25:06 AM UTC:
  tests:  4|7
 total_score: 5/70
 662e7d7
+Mon 26 Sep 2022 01:31:47 AM UTC: 
+ treemap.c | 23 ++++++++++++++++++++++-
+ 1 file changed, 22 insertions(+), 1 deletion(-)
+In file included from test.c:4:
+treemap.c:98:8: error: redefinition of ‘searchTreeMap’
+   98 | Pair * searchTreeMap(TreeMap * tree, void* key) {
+      |        ^~~~~~~~~~~~~
+treemap.c:51:8: note: previous definition of ‘searchTreeMap’ was here
+   51 | Pair * searchTreeMap(TreeMap * tree, void* key) {
+      |        ^~~~~~~~~~~~~
+Compilation failed
+ad840df
