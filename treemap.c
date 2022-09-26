@@ -137,29 +137,31 @@ Pair * searchTreeMap(TreeMap * tree, void* key){
 
 
 Pair * upperBound(TreeMap * tree, void* key) {
-  TreeNode * node;
+  TreeNode * nodo;
   tree -> current = tree -> root;
-  node = NULL;
-
+  nodo = NULL;
+  
   while (tree -> current != NULL){
     if (tree -> lower_than(key,tree -> current -> pair -> key) == 1 ){
-      node = tree -> current;
+      nodo = tree -> current;
       if(tree -> current -> left == NULL){
         break;
-      }tree -> current = tree -> current -> left;
+      }
+      tree -> current = tree -> current -> left;
     }else if (is_equal(tree, key,tree -> current -> pair -> key) == 1){
-      node = tree -> current;
+      nodo = tree -> current;
       break;
     }else{
     if(tree -> current -> right == NULL){
         break;
-      }tree -> current = tree -> current -> right;
+      }
+      tree -> current = tree -> current -> right;
     }
   }
-  if (node == NULL){
+  if (nodo == NULL){
     return NULL; 
   }
-  return node -> pair;
+  return nodo -> pair;
 }
 
 
