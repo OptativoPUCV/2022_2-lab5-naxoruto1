@@ -137,8 +137,31 @@ Pair * searchTreeMap(TreeMap * tree, void* key){
 
 
 Pair * upperBound(TreeMap * tree, void* key) {
-    return NULL;
+  TreeNode * node;
+  tree -> current = tree -> root;
+  node = NULL;
+
+  while (tree -> current != NULL){
+    if (tree -> lower_than(key,tree -> current -> pair -> key) == 1 ){
+      node = tree -> current;
+      if(tree -> current -> left == NULL){
+        break;
+      }tree -> current = tree -> current -> left;
+    }else if (is_equal(tree, key,tree -> current -> pair -> key) == 1){
+      node = tree -> current;
+      break;
+    }else{
+    if(tree -> current -> right == NULL){
+        break;
+      }tree -> current = tree -> current -> right;
+    }
+  }
+  if (node == NULL){
+    return NULL; 
+  }
+  return node -> pair;
 }
+
 
 Pair * firstTreeMap(TreeMap * tree) {
     TreeNode* nodo = (TreeNode*)calloc(1,sizeof(TreeNode));
@@ -160,16 +183,16 @@ Pair nextTreeMap(TreeMap * tree) {
     }
     if (Aux -> right == NULL){
     while (Aux -> parent != NULL){
-        if (Aux == NULL) {
-          return NULL; 
-        }else if (tree->lower_than(Aux ->parent->pair->key,tree->current->pair->key) == 1){
-          Aux = Aux -> parent;
-        }else if (tree -> lower_than(tree->current->pair->key,Aux->parent->pair->key) == 1){
-          Aux = Aux -> parent;
-          tree -> current = Aux;
-          return Aux -> pair;
-        }else return Aux->pair;
-      }
+      if (Aux == NULL) {
+        return NULL; 
+      }else if (tree->lower_than(Aux ->parent->pair->key,tree->current->pair->key) == 1){
+        Aux = Aux -> parent;
+      }else if (tree -> lower_than(tree->current->pair->key,Aux->parent->pair->key) == 1){
+        Aux = Aux -> parent;
+        tree -> current = Aux;
+        return Aux -> pair;
+      }else return Aux->pair;
+    }
     }else {
       tree -> current = minimum(tree -> current -> right);
       return tree -> current -> pair;
