@@ -369,3 +369,34 @@ treemap.c:51:8: note: previous definition of ‘searchTreeMap’ was here
       |        ^~~~~~~~~~~~~
 Compilation failed
 878dd0e
+Mon 26 Sep 2022 01:33:28 AM UTC: 
+ treemap.c | 8 ++++++--
+ 1 file changed, 6 insertions(+), 2 deletions(-)
+In file included from test.c:4:
+treemap.c:53:3: error: expected identifier or ‘(’ before ‘if’
+   53 |   if(tree == NULL){ // si es nulo
+      |   ^~
+treemap.c:57:19: error: ‘tree’ undeclared here (not in a function); did you mean ‘free’?
+   57 |   TreeNode *aux = tree->root;
+      |                   ^~~~
+      |                   free
+treemap.c:60:3: error: expected identifier or ‘(’ before ‘while’
+   60 |   while(aux != NULL){
+      |   ^~~~~
+treemap.c:69:4: error: expected identifier or ‘(’ before ‘if’
+   69 |    if(is_equal(tree,tree->current->pair->key,key)){
+      |    ^~
+treemap.c:73:3: error: expected identifier or ‘(’ before ‘return’
+   73 |   return NULL;
+      |   ^~~~~~
+treemap.c:74:1: error: expected identifier or ‘(’ before ‘}’ token
+   74 | }
+      | ^
+treemap.c:98:8: error: redefinition of ‘searchTreeMap’
+   98 | Pair * searchTreeMap(TreeMap * tree, void* key) {
+      |        ^~~~~~~~~~~~~
+treemap.c:51:8: note: previous definition of ‘searchTreeMap’ was here
+   51 | Pair * searchTreeMap(TreeMap * tree, void* key){}
+      |        ^~~~~~~~~~~~~
+Compilation failed
+3fb6995
