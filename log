@@ -827,3 +827,15 @@ treemap.c:65:12: note: previous definition of ‘minimum’ was here
       |            ^~~~~~~
 Compilation failed
 8050246
+Mon 26 Sep 2022 02:43:16 AM UTC: 
+ treemap.c | 23 +++++++++++++----------
+ 1 file changed, 13 insertions(+), 10 deletions(-)
+In file included from test.c:4:
+treemap.c:78:12: error: redefinition of ‘minimum’
+   78 | TreeNode * minimum(TreeNode * x){
+      |            ^~~~~~~
+treemap.c:68:12: note: previous definition of ‘minimum’ was here
+   68 | TreeNode * minimum(TreeNode * x){
+      |            ^~~~~~~
+Compilation failed
+22049b6
