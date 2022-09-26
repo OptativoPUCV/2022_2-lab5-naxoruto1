@@ -141,17 +141,38 @@ Pair * upperBound(TreeMap * tree, void* key) {
 }
 
 Pair * firstTreeMap(TreeMap * tree) {
-    TreeNode* node = (TreeNode*)calloc(1,sizeof(TreeNode));
-    node = tree->root;
+    TreeNode* nodo = (TreeNode*)calloc(1,sizeof(TreeNode));
+    nodo = tree->root;
     if(tree == NULL || tree->root == NULL){
       return NULL;
     }
-    while(node->left != NULL){
-      node = node->left;
+    while(nodo->left != NULL){
+      nodo = nodo->left;
     }
-    return node->pair;
+    return nodo->pair;
 }
 
-Pair * nextTreeMap(TreeMap * tree) {
+Pair nextTreeMap(TreeMap * tree) {
+    TreeNode * Aux = tree -> current;
+    if(tree -> current == NULL){
+         return NULL;
+
+    }
+    if (Aux -> right == NULL){
+    while (Aux -> parent != NULL){
+        if (Aux == NULL) {
+          return NULL; 
+        }else if (tree->lower_than(Aux ->parent->pair->key,tree->current->pair->key) == 1){
+          Aux = Aux -> parent;
+        }else if (tree -> lower_than(tree->current->pair->key,Aux->parent->pair->key) == 1){
+          Aux = Aux -> parent;
+          tree -> current = Aux;
+          return Aux -> pair;
+        }else return Aux->pair;
+      }
+    }else {
+      tree -> current = minimum(tree -> current -> right);
+      return tree -> current -> pair;
+    }
     return NULL;
 }

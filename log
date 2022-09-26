@@ -577,3 +577,61 @@ Mon 26 Sep 2022 02:33:35 AM UTC:
  tests:  18|3
 total_score: 35/70
 2c80152
+Mon 26 Sep 2022 02:36:48 AM UTC: 
+ treemap.c | 33 +++++++++++++++++++++++++++------
+ 1 file changed, 27 insertions(+), 6 deletions(-)
+In file included from test.c:4:
+treemap.c:155:6: error: conflicting types for ‘nextTreeMap’
+  155 | Pair nextTreeMap(TreeMap * tree) {
+      |      ^~~~~~~~~~~
+In file included from treemap.c:4,
+                 from test.c:4:
+treemap.h:23:8: note: previous declaration of ‘nextTreeMap’ was here
+   23 | Pair * nextTreeMap(TreeMap * tree);
+      |        ^~~~~~~~~~~
+In file included from test.c:4:
+treemap.c: In function ‘nextTreeMap’:
+treemap.c:158:17: error: incompatible types when returning type ‘void *’ but ‘Pair’ was expected
+  158 |          return NULL;
+      |                 ^~~~
+treemap.c:164:18: error: incompatible types when returning type ‘void *’ but ‘Pair’ was expected
+  164 |           return NULL;
+      |                  ^~~~
+treemap.c:170:22: error: incompatible types when returning type ‘Pair *’ but ‘Pair’ was expected
+  170 |           return Aux -> pair;
+      |                  ~~~~^~~~~~~
+treemap.c:171:25: error: incompatible types when returning type ‘Pair *’ but ‘Pair’ was expected
+  171 |         }else return Aux->pair;
+      |                      ~~~^~~~~~
+treemap.c:175:30: error: incompatible types when returning type ‘Pair *’ but ‘Pair’ was expected
+  175 |       return tree -> current -> pair;
+      |              ~~~~~~~~~~~~~~~~^~~~~~~
+treemap.c:177:12: error: incompatible types when returning type ‘void *’ but ‘Pair’ was expected
+  177 |     return NULL;
+      |            ^~~~
+test.c: In function ‘next_test1’:
+test.c:360:15: error: incompatible types when initializing type ‘Pair *’ using type ‘Pair’
+  360 |     Pair* aux=nextTreeMap(tree);
+      |               ^~~~~~~~~~~
+test.c: In function ‘next_test2’:
+test.c:380:15: error: incompatible types when initializing type ‘Pair *’ using type ‘Pair’
+  380 |     Pair* aux=nextTreeMap(tree);
+      |               ^~~~~~~~~~~
+test.c:388:9: error: incompatible types when assigning to type ‘Pair *’ from type ‘Pair’
+  388 |     aux=nextTreeMap(tree);
+      |         ^~~~~~~~~~~
+test.c:396:9: error: incompatible types when assigning to type ‘Pair *’ from type ‘Pair’
+  396 |     aux=nextTreeMap(tree);
+      |         ^~~~~~~~~~~
+test.c: In function ‘next_test3’:
+test.c:414:15: error: incompatible types when initializing type ‘Pair *’ using type ‘Pair’
+  414 |     Pair* aux=nextTreeMap(tree);
+      |               ^~~~~~~~~~~
+In file included from test.c:4:
+treemap.c: In function ‘nextTreeMap’:
+treemap.c:178:1: error: control reaches end of non-void function [-Werror=return-type]
+  178 | }
+      | ^
+cc1: all warnings being treated as errors
+Compilation failed
+8f8660d
