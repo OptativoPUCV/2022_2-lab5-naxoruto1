@@ -357,3 +357,15 @@ treemap.c:51:8: note: previous definition of ‘searchTreeMap’ was here
       |        ^~~~~~~~~~~~~
 Compilation failed
 ad840df
+Mon 26 Sep 2022 01:33:10 AM UTC: 
+ treemap.c | 6 +-----
+ 1 file changed, 1 insertion(+), 5 deletions(-)
+In file included from test.c:4:
+treemap.c:92:8: error: redefinition of ‘searchTreeMap’
+   92 | Pair * searchTreeMap(TreeMap * tree, void* key) {
+      |        ^~~~~~~~~~~~~
+treemap.c:51:8: note: previous definition of ‘searchTreeMap’ was here
+   51 | Pair * searchTreeMap(TreeMap * tree, void* key) {
+      |        ^~~~~~~~~~~~~
+Compilation failed
+878dd0e
