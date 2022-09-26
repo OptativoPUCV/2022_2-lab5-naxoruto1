@@ -175,27 +175,27 @@ Pair * firstTreeMap(TreeMap * tree) {
     return nodo->pair;
 }
 
-Pair nextTreeMap(TreeMap * tree) {
-    TreeNode * Aux = tree -> current;
+Pair * nextTreeMap(TreeMap * tree) {
+    TreeNode * aux = tree -> current;
     if(tree -> current == NULL){
          return NULL;
-
+      
     }
-    if (Aux -> right == NULL){
-    while (Aux -> parent != NULL){
-      if (Aux == NULL) {
-        return NULL; 
-      }else if (tree->lower_than(Aux ->parent->pair->key,tree->current->pair->key) == 1){
-        Aux = Aux -> parent;
-      }else if (tree -> lower_than(tree->current->pair->key,Aux->parent->pair->key) == 1){
-        Aux = Aux -> parent;
-        tree -> current = Aux;
-        return Aux -> pair;
-      }else return Aux->pair;
-    }
+    if (aux -> right == NULL){
+    while (aux -> parent != NULL){
+        if (aux == NULL) {
+          return NULL; 
+        }else if (tree->lower_than(aux -> parent -> pair -> key,tree -> current -> pair -> key) == 1){
+          aux = aux -> parent;
+        }else if (tree -> lower_than(tree -> current -> pair -> key, aux -> parent -> pair -> key) == 1){
+          aux = aux -> parent;
+          tree -> current = aux;
+          return aux -> pair;
+        }else return aux->pair;
+      }
     }else {
       tree -> current = minimum(tree -> current -> right);
       return tree -> current -> pair;
-    }
+    }   
     return NULL;
 }
