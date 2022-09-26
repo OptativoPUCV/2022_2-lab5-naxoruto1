@@ -333,3 +333,9 @@ treemap.c:46:10: error: ‘TreeMap’ has no member named ‘lower_than_int’; 
       |          lower_than
 Compilation failed
 c313b0d
+Mon 26 Sep 2022 01:25:00 AM UTC: 
+ treemap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+ tests:  4|7
+total_score: 5/70
+7bf06ee
