@@ -79,16 +79,15 @@ Pair * searchTreeMap(TreeMap * tree, void* key){}
   if(tree == NULL){ // si es nulo
     return NULL;
   }
-
-  TreeNode *aux = tree->root;
-
   
-  while(aux != NULL){
-    tree->current = aux;
-    if(tree->lower_than(aux->pair->key, key) == 1){
-      aux = aux->right;
-    }else if(tree->lower_than(key, aux->pair->key) == 1){
-      aux = aux->left;
+  TreeNode * Aux = tree->root;
+  
+  while(Aux != NULL){
+    tree->current = Aux;
+    if(tree->lower_than(Aux->pair->key, key) == 1){
+      Aux = Aux->right;
+    }else if(tree->lower_than(key, Aux->pair->key) == 1){
+      Aux = Aux->left;
       }else break;
   }
   
