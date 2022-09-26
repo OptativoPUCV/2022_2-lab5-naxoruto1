@@ -460,3 +460,33 @@ treemap.c:77:49: error: control reaches end of non-void function [-Werror=return
 cc1: all warnings being treated as errors
 Compilation failed
 1759792
+Mon 26 Sep 2022 02:17:36 AM UTC: 
+ treemap.c | 7 ++++---
+ 1 file changed, 4 insertions(+), 3 deletions(-)
+In file included from test.c:4:
+treemap.c:79:3: error: expected identifier or ‘(’ before ‘if’
+   79 |   if(tree == NULL){ // si es nulo
+      |   ^~
+treemap.c:83:20: error: ‘tree’ undeclared here (not in a function); did you mean ‘free’?
+   83 |   TreeNode * Aux = tree->root;
+      |                    ^~~~
+      |                    free
+treemap.c:85:3: error: expected identifier or ‘(’ before ‘while’
+   85 |   while(Aux != NULL){
+      |   ^~~~~
+treemap.c:95:4: error: expected identifier or ‘(’ before ‘if’
+   95 |    if(is_equal(tree,tree->current->pair->key,key)){
+      |    ^~
+treemap.c:99:3: error: expected identifier or ‘(’ before ‘return’
+   99 |   return NULL;
+      |   ^~~~~~
+treemap.c:100:1: error: expected identifier or ‘(’ before ‘}’ token
+  100 | }
+      | ^
+treemap.c: In function ‘searchTreeMap’:
+treemap.c:77:49: error: control reaches end of non-void function [-Werror=return-type]
+   77 | Pair * searchTreeMap(TreeMap * tree, void* key){}
+      |                                                 ^
+cc1: all warnings being treated as errors
+Compilation failed
+841d184
