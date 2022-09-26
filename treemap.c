@@ -151,29 +151,29 @@ Pair * searchTreeMap(TreeMap * tree, void* key){
 
 
 Pair * upperBound(TreeMap * tree, void* key) {
-  TreeNode * node;
+  TreeNode * nodo;
   tree -> current = tree -> root;
-  node = NULL;
+  nodo = NULL;
   
   while (tree -> current != NULL){
-    if (tree -> lower_than(key,tree -> current -> pair -> key) == 1 ){
-      node = tree -> current;
+    if (tree-> lower_than(key,tree->current->pair->key) == 1 ){
+      nodo = tree->current;
       if(tree -> current -> left == NULL){
         break;
       }tree -> current = tree -> current -> left;
-    }else if (is_equal(tree, key,tree -> current -> pair -> key) == 1){
-      node = tree -> current;
+    }else if (is_equal(tree, key,tree->current->pair->key) == 1){
+      nodo = tree->current;
       break;
     }else{
-    if(tree -> current -> right == NULL){
+    if(tree->current->right == NULL){
         break;
-      }tree -> current = tree -> current -> right;
+      }tree->current = tree->current->right;
     }
   }
-  if (node == NULL){
+  if (nodo == NULL){
     return NULL; 
   }
-  return node -> pair;
+  return nodo -> pair;
 }
 
 
@@ -197,16 +197,16 @@ Pair * nextTreeMap(TreeMap * tree) {
     }
     if (aux -> right == NULL){
     while (aux -> parent != NULL){
-        if (aux == NULL) {
-          return NULL; 
-        }else if (tree->lower_than(aux -> parent -> pair -> key,tree -> current -> pair -> key) == 1){
-          aux = aux -> parent;
-        }else if (tree -> lower_than(tree -> current -> pair -> key, aux -> parent -> pair -> key) == 1){
-          aux = aux -> parent;
-          tree -> current = aux;
-          return aux -> pair;
-        }else return aux->pair;
-      }
+      if (aux == NULL) {
+        return NULL; 
+      }else if (tree->lower_than(aux -> parent -> pair -> key,tree -> current -> pair -> key) == 1){
+        aux = aux -> parent;
+      }else if (tree -> lower_than(tree -> current -> pair -> key, aux -> parent -> pair -> key) == 1){
+        aux = aux -> parent;
+        tree -> current = aux;
+        return aux -> pair;
+      }else return aux->pair;
+    }
     }else {
       tree -> current = minimum(tree -> current -> right);
       return tree -> current -> pair;
