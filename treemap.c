@@ -70,7 +70,15 @@ void removeNode(TreeMap * tree, TreeNode* node) {
       parentNode->left = NULL; 
     }
     
-  }
+  }else if ((node->left != NULL && node->right == NULL) || (node->left == NULL && node->right != NULL)) {
+    if (node->left == NULL) {
+      if (tree->lower_than(parentNode->pair->key, node->pair->key) == 1) {
+        parentNode->right = node->right; 
+      }else if (tree->lower_than(node->pair->key, parentNode->pair->key) == 1) {
+        parentNode->left = node->right; 
+      }
+    node->right->parent = parentNode; 
+    }
 }
 
 void eraseTreeMap(TreeMap * tree, void* key){
