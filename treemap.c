@@ -95,6 +95,10 @@ Pair * searchTreeMap(TreeMap * tree, void* key){
       Aux = Aux->right;
     }
   }
+
+  if(is_equal(tree,tree->current->pair->key,key)){
+      return tree->current->pair;
+  }
   
   return NULL;
 }
