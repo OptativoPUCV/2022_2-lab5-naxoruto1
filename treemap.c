@@ -85,10 +85,10 @@ Pair * searchTreeMap(TreeMap * tree, void* key){
   while(Aux != NULL){
     tree->current = Aux;
     if(tree->lower_than(Aux->pair->key, key)){
-      Aux = Aux->right;
+      Aux = Aux->left;
     }
     else{
-      Aux = Aux->left;
+      Aux = Aux->rigth;
     }
   }
   
