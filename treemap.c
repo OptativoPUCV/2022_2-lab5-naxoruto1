@@ -84,16 +84,16 @@ Pair * searchTreeMap(TreeMap * tree, void* key){
   
   while(Aux != NULL){
     tree->current = Aux;
+    
+    if(is_equal(tree,tree->current->pair->key,key)){
+      return tree->current->pair;
+    }
     if(tree->lower_than(Aux->pair->key, key)){
       Aux = Aux->left;
     }
     else{
       Aux = Aux->right;
     }
-  }
-  
-   if(is_equal(tree,tree->current->pair->key,key)){
-    return tree->current->pair;
   }
   
   return NULL;
